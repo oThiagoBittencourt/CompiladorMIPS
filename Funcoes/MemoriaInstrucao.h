@@ -1,11 +1,14 @@
 #include <stdio.h>
+#include <string.h>
+#include "Processador.h"
 
-int teste() {
+int read(int line) {
+    printf("%d", line);
     FILE *file;
-    char filename[] = "Arquivos/Arquivo.txt"; // Caminho relativo ao arquivo
-    char linha[256]; // Buffer para armazenar cada linha do arquivo
+    char filename[] = "../Arquivos/Arquivo.txt";
+    char linha[32];
+    char *p1, *p2, *p3, *p4;
 
-    // Abrindo o arquivo no modo leitura ("r")
     file = fopen(filename, "r");
 
     if (file == NULL) {
@@ -13,12 +16,35 @@ int teste() {
         return 1;
     }
 
-    // Lendo o arquivo linha por linha
     while (fgets(linha, sizeof(linha), file) != NULL) {
-        printf("%s", linha); // Imprime a linha lida
+        linha[strcspn(linha, "\n")] = '\0';
+
+        if (strlen(linha) == 0) {
+            continue;
+        }
+
+        p1 = p2 = p3 = p4 = NULL;
+
+        p1 = strtok(linha, " ");
+        p2 = strtok(NULL, " ");
+        p3 = strtok(NULL, " ");
+        p4 = strtok(NULL, " ");
+
+        if (p2 == NULL) {
+            continue;
+        }
+
+        if (strcmp(p1, "bge") == 0) {
+
+        }
+        else if (strcmp(p1, "J") == 0) {
+
+        }
+        else {
+            // Instrucao(p1, p2, p3, p4);
+        }
     }
 
-    // Fechando o arquivo
     fclose(file);
 
     return 0;
