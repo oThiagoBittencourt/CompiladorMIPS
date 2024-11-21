@@ -5,9 +5,11 @@
 int main() {
     struct registrador registradores[35];
     inicializarRegistradores(registradores);
-    mostrarRegistradores(registradores);
-    while (0) {
-        read(1);
+    // mostrarRegistradores(registradores);
+    int controlador = 0;
+    while (controlador != -1) {
+        int linhaAtual = getRegistradorNome(registradores, "pc");
+        controlador = read(linhaAtual);
     }
     return 0;
 }

@@ -1,15 +1,13 @@
 li $s0, 10
 move $t0, $zero
 move $t1, $zero
-
 jump:
 add $s1, $t0, $t1
-
 bge $s1, $s0, IF
-    addi $t0, $t0, 1
-    addi $t1, $t1, 2
-    J jump
+addi $t0, $t0, 1
+addi $t1, $t1, 2
+J jump
 IF:
-    div $t1, $t0
-    mflo $s0
-    mfhi $s1
+div $t1, $t0
+mflo $s0
+mfhi $s1

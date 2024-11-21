@@ -26,7 +26,7 @@ void inicializarRegistradores(struct registrador registradores[]) {
 
 // Controle dos Registradores
 
-void getRegistradorID(struct registrador registradores[], int id) {
+int getRegistradorID(struct registrador registradores[], int id) {
     return registradores[id].valor;
 }
 
