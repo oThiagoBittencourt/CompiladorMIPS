@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "Processador.h"
 
 int read(int pc) {
     FILE *file;
@@ -25,7 +26,7 @@ int read(int pc) {
         linha[strcspn(linha, "\n")] = '\0';
 
         if (strlen(linha) == 0) {
-            // attPC()
+            AttPC(tag_id);
             fclose(file);
             return 0;
         }

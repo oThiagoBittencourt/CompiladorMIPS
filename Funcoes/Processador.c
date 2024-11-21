@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "Registradores.h"
 
 void ULA() {
     
@@ -46,4 +45,11 @@ void memoriaInstrucao(char func[3], char r0[5], char r1[5], char r2[5], int tag)
         } else {
             printf("Instrução desconhecida: %s\n", func);
         }
+}
+
+
+int main(){
+    
+    AttPC(-1);
+    return 0;
 }
