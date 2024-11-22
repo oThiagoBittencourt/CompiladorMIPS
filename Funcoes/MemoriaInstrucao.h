@@ -19,6 +19,7 @@ int read(int pc) {
     }
 
     while (fgets(linha, sizeof(linha), file) != NULL) {
+        
         if (linha_atual != pc) {
             linha_atual++;
             continue;
@@ -39,7 +40,7 @@ int read(int pc) {
         r2 = strtok(NULL, " ");
 
         if (r0 == NULL) {
-            // attPC()
+            AttPC(tag_id);
             fclose(file);
             return 0;
         }
@@ -54,6 +55,7 @@ int read(int pc) {
                     linhaBusca_atual++;
                     continue;
                 }
+                printf("%d\n", linhaBusca_atual);
                 tag_id = linhaBusca_atual;
                 break;
             }
@@ -63,6 +65,7 @@ int read(int pc) {
             rewind(file);
             int linhaBusca_atual = 1;
             while (fgets(linhaTAG, sizeof(linhaTAG), file) != NULL) {
+                printf("aaaaaaaaaaaaaaaaa %d\n", linhaBusca_atual);
                 linhaTAG[strcspn(linhaTAG, "\n")] = '\0';
                 tag = strtok(linhaTAG, " ");
                 if (!strstr(tag, r0)) {
