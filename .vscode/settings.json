@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "registradores.h": "c"
+        "registradores.h": "c",
+        "memoriainstrucao.h": "c",
+        "processador.h": "c",
+        "stdlib.h": "c"
     }
 }

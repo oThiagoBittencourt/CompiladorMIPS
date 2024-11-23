@@ -129,8 +129,7 @@ resultado ula(char op, int n1, int n2)
         resultados.quociente = n1 + n2; 
         break;
     case 'b':
-        resultados.quociente = n1 - n2;
-        // if()
+            resultados.quociente = (n1 >= n2) ? 1 : 0;
         break;
     case 'd':
         if (n2 != 0)
@@ -163,6 +162,9 @@ void attPC(int tag)
 
 void memoriaInstrucao(char func[], char r0[], char r1[], char r2[], int tag)
 {
+    printf("\n");
+    tabelaEstrutural(func, r0, r1, r2);
+    printf("\n");
     if (strcmp(func, "li") == 0)
     {
         int numR1 = atoi(r1);
@@ -188,7 +190,10 @@ void memoriaInstrucao(char func[], char r0[], char r1[], char r2[], int tag)
         int numR0 = getRegistradorNome(registradoresPC, r0);
         int numR1 = getRegistradorNome(registradoresPC, r1);
         resultado result = ula('b', numR0, numR1);
-        // Lógica específica para "bge"
+        if(result.quociente == 1)
+            attPC(tag);
+        else
+            attPC(-1);
     }
     else if (strcmp(func, "addi") == 0)
     {
@@ -200,8 +205,7 @@ void memoriaInstrucao(char func[], char r0[], char r1[], char r2[], int tag)
     }
     else if (strcmp(func, "J") == 0)
     {
-        printf("Instrução: J\n");
-        // Lógica específica para "J"
+        attPC(tag);
     }
     else if (strcmp(func, "div") == 0)
     {
@@ -228,6 +232,10 @@ void memoriaInstrucao(char func[], char r0[], char r1[], char r2[], int tag)
     {
         printf("Instrução desconhecida: %s\n", func);
     }
+
+    printf("\n");
+    mostrarRegistradores(registradoresPC);
+    printf("\n");
 }
 
 #endif

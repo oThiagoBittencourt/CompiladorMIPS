@@ -4,7 +4,7 @@
 
 int read(int pc) {
     FILE *file;
-    char filename[] = "../Arquivos/Arquivo.txt";
+    char filename[] = "Arquivos/Arquivo.txt";
     char linha[32];
     char linhaTAG[32];
     char *func, *r0, *r1, *r2, *tag;
@@ -35,10 +35,10 @@ int read(int pc) {
         func = r0 = r1 = r2 = tag = NULL;
 
         func = strtok(linha, " ");
-        r0 = strtok(NULL, " ");
-        r1 = strtok(NULL, " ");
-        r2 = strtok(NULL, " ");
-
+        r0 = strtok(NULL, ", ");
+        r1 = strtok(NULL, ", ");
+        r2 = strtok(NULL, ", ");
+        
         if (r0 == NULL) {
             attPC(tag_id);
             fclose(file);
@@ -55,11 +55,10 @@ int read(int pc) {
                     linhaBusca_atual++;
                     continue;
                 }
-                printf("%d\n", linhaBusca_atual);
                 tag_id = linhaBusca_atual;
                 break;
             }
-            // Instrucao(func, r0, r1, r2, tag_id);
+            memoriaInstrucao(func, r0, r1, r2, tag_id);
         }
         else if (strcmp(func, "J") == 0) {
             rewind(file);
@@ -74,10 +73,10 @@ int read(int pc) {
                 tag_id = linhaBusca_atual;
                 break;
             }
-            // Instrucao(func, r0, r1, r2, tag_id);
+            memoriaInstrucao(func, r0, r1, r2, tag_id);
         }
         else {
-            // Instrucao(func, r0, r1, r2, tag_id);
+            memoriaInstrucao(func, r0, r1, r2, tag_id);
         }
 
         fclose(file);
