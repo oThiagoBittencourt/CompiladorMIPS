@@ -27,7 +27,7 @@ int read(int pc) {
         linha[strcspn(linha, "\n")] = '\0';
 
         if (strlen(linha) == 0) {
-            AttPC(tag_id);
+            attPC(tag_id);
             fclose(file);
             return 0;
         }
@@ -40,7 +40,7 @@ int read(int pc) {
         r2 = strtok(NULL, " ");
 
         if (r0 == NULL) {
-            AttPC(tag_id);
+            attPC(tag_id);
             fclose(file);
             return 0;
         }

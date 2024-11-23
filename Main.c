@@ -7,12 +7,13 @@ int main() {
     struct registrador *registradores = malloc(35 * sizeof(struct registrador));
     inicializarRegistradores(registradores);
     initPc(registradores);
-    AttPC(-1);
-    int controlador = 0;
-    while (controlador != -1) {
-        int linhaAtual = getRegistradorNome(registradores, "pc");
-        controlador = read(linhaAtual);
-    }
+    attPC(-1);
+    memoriaInstrucao("addi", "$t0", "$t0", "1", -1);
+    // int controlador = 0;
+    // while (controlador != -1) {
+    //     int linhaAtual = getRegistradorNome(registradores, "pc");
+    //     controlador = read(linhaAtual);
+    // }
     mostrarRegistradores(registradores);
     return 0;
 }
