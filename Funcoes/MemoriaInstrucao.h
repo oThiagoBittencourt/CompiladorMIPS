@@ -9,7 +9,7 @@ int read(int pc) {
     char linhaTAG[32];
     char *func, *r0, *r1, *r2, *tag;
     int tag_id = -1;
-    int linha_atual = 1;
+    int linha_atual = 0;
 
     file = fopen(filename, "r");
 
