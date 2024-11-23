@@ -92,8 +92,10 @@ void tabelaEstrutural(char func[], char r0[], char r1[], char r2[]) {
     } else {
         ra0 = r0;
         strcat(instruct, ra0); 
-        if(strcmp(func, "J") != 0)
+        if(strcmp(func, "J") != 0 && strcmp(func, "mfhi") != 0 && strcmp(func, "mflo") != 0){
             strcat(instruct, ", ");
+        }
+            
     }
 
     if (r1 == NULL || strcmp(r1, "") == 0) {
