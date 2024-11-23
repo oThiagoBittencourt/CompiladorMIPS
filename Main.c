@@ -4,16 +4,17 @@
 #include <stdlib.h>
 
 int main() {
-    struct registrador *registradores = malloc(35 * sizeof(struct registrador));
-    inicializarRegistradores(registradores);
-    initPc(registradores);
-    attPC(-1);
-    memoriaInstrucao("addi", "$t0", "$t0", "1", -1);
+    // struct registrador *registradores = malloc(35 * sizeof(struct registrador));
+    // inicializarRegistradores(registradores);
+    // initPc(registradores);
+    // attPC(-1);
+    
     // int controlador = 0;
     // while (controlador != -1) {
     //     int linhaAtual = getRegistradorNome(registradores, "pc");
-    //     controlador = read(linhaAtual);
+        // int controlador = read(linhaAtual);
     // }
-    mostrarRegistradores(registradores);
+    tabelaEstrutural("li", "&t0", "2", "");
+    // mostrarRegistradores(registradores);
     return 0;
 }

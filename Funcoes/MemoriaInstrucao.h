@@ -65,7 +65,6 @@ int read(int pc) {
             rewind(file);
             int linhaBusca_atual = 1;
             while (fgets(linhaTAG, sizeof(linhaTAG), file) != NULL) {
-                printf("aaaaaaaaaaaaaaaaa %d\n", linhaBusca_atual);
                 linhaTAG[strcspn(linhaTAG, "\n")] = '\0';
                 tag = strtok(linhaTAG, " ");
                 if (!strstr(tag, r0)) {
